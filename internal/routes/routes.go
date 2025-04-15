@@ -10,12 +10,17 @@ import (
 func SetupRoutes() http.Handler {
 	// Buat router bawaan Go
 	mux := http.NewServeMux()
-	mux.HandleFunc("/api/v1/quotes", func(w http.ResponseWriter, r *http.Request) {
-		handlers.AddQuote(w, r)
-	})
+
+	// Daftarkan route untuk menambah quote baru
+	mux.HandleFunc("/api/v1/quotes", handlers.AddQuote)
+
+	// Daftarkan route untuk mendapatkan quote acak
+	mux.HandleFunc("/api/v1/random-quotes", handlers.GetRandomQuotes)
 
 	// Tambahkan middleware untuk logging dan CORS
+	// Logger akan menangani request dan mencatat log
+
 	return middleware.CORS(
-		middleware.Logger(mux),
+		middleware.Logger(mux), // Logger middleware
 	)
 }

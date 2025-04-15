@@ -3,7 +3,6 @@
 A RESTful API that delivers inspirational quotes from Catholic and Orthodox saints.  
 It includes biographical details, spiritual attributes, and patronages associated with each saint.
 
----
 
 ### Motivation
 
@@ -13,7 +12,7 @@ To inspire reflection, spiritual growth, and inner peace, this project preserves
 
 To get started with the API, you can make requests to the following endpoints:
 
-#### Get a Random Quote
+#### Get A Random Quote
 
 ```bash
 api/v1/random-quotes
@@ -64,7 +63,7 @@ api/v1/random-quotes
 #### Get Quotes by Saint Name
 
 ```bash
-/api/v1/quotes/search?name={saint-name}
+/api/v1/quotes/search?name={author-name}
 ```
 
 
@@ -77,11 +76,11 @@ api/v1/random-quotes
 
 ### Rate Limiting
 
-To ensure fair usage and prevent abuse, this API applies the following rate limiting policy only 200 requests per IP address per 15-minute window.
+To ensure fair usage and prevent abuse, this API applies the following rate limiting policy only 20 requests per 15-minute window.
 
 ```json
 {
-  "message": "Too many requests from this IP, please try again after 15 minutes",
+  "message": "Too many requests, please try again after 15 minutes",
   "code": 429
 }
 ```
@@ -89,4 +88,4 @@ To ensure fair usage and prevent abuse, this API applies the following rate limi
 ### License
 
 Licensed under the MIT License.  
-Free to use, modify, and distribute — even for commercial purposes.  
+Free to use, modify, and distribute even for commercial purposes.  

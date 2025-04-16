@@ -12,7 +12,6 @@ type Author struct {
 	Denomination   []string `json:"denomination" bson:"denomination"`
 	VenerationDate string   `json:"veneration_date" bson:"veneration_date"`
 	PilgrimageSite string   `json:"pilgrimage_site" bson:"pilgrimage_site"`
-	FestivalDate   string   `json:"festival_date" bson:"festival_date"`
 	Attributes     []string `json:"attributes" bson:"attributes"`
 	Patronage      []string `json:"patronage" bson:"patronage"`
 }

@@ -17,6 +17,9 @@ func SetupRoutes() http.Handler {
 	// Daftarkan route untuk mendapatkan quote acak
 	mux.HandleFunc("/api/v1/random-quotes", handlers.GetRandomQuotes)
 
+	// Daftarkan route untuk mendapatkan quote berdasarkan nama santo
+	mux.HandleFunc("/api/v1/quotes/search", handlers.GetQuotesBySaintName)
+
 	// Tambahkan middleware untuk logging dan CORS
 	// Logger akan menangani request dan mencatat log
 

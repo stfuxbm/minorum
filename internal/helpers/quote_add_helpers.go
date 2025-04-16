@@ -49,9 +49,14 @@ func CheckDuplicateQuote(r *http.Request, quote models.Quote) error {
 func SaveQuote(r *http.Request, quote *models.Quote) error {
 	collection := database.DB.Collection("quotes")
 	now := time.Now().UTC()
-	quote.CreatedAt = now
-	quote.UpdatedAt = now
 
+	// Jika data sudah ada, perbarui UpdatedAt
+	if quote.CreatedAt.IsZero() {
+		quote.CreatedAt = now // Jika pertama kali dibuat, set CreatedAt
+	}
+	quote.UpdatedAt = now // Selalu update UpdatedAt
+
+	// Menyimpan atau mengupdate data ke database
 	_, err := collection.InsertOne(r.Context(), quote)
 	if err != nil {
 		return fmt.Errorf(models.MsgInternalServerError)

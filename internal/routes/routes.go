@@ -11,19 +11,20 @@ func SetupRoutes() http.Handler {
 	// Buat router bawaan Go
 	mux := http.NewServeMux()
 
-	// Daftarkan route untuk menambah quote baru
+	//  route untuk menambah quote baru
 	mux.HandleFunc("/api/v1/quotes", handlers.AddQuote)
 
-	// Daftarkan route untuk mendapatkan quote acak
+	//  route untuk mendapatkan quote acak
 	mux.HandleFunc("/api/v1/random-quotes", handlers.GetRandomQuotes)
 
-	// Daftarkan route untuk mendapatkan quote berdasarkan nama santo
+	//  route untuk mendapatkan quote berdasarkan nama santo
 	mux.HandleFunc("/api/v1/quotes/search", handlers.GetQuotesBySaintName)
 
-	// Tambahkan middleware untuk logging dan CORS
-	// Logger akan menangani request dan mencatat log
+	//  route untuk mendapatkan quote berdasarkan kategori
+	mux.HandleFunc("/api/v1/quotes/category", handlers.GetQuotesByCategory)
 
+	//  middleware untuk logging dan CORS
 	return middleware.CORS(
-		middleware.Logger(mux), // Logger middleware
+		middleware.Logger(mux),
 	)
 }

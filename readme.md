@@ -68,8 +68,6 @@ Query Parameters:
 - `name` (e.g., "Fransiskus Assisi")
 - `category` (e.g., "Perdamaian, Kasih")
 
-You can provide either `name` or `category`.
-
 ```bash
 /api/v1/quotes/search?name={name}
 ```

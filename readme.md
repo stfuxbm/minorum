@@ -61,66 +61,22 @@ api/v1/random-quotes
 }
 ```
 
-#### Get Quotes by Saint Author
+#### Get Quotes by Saint or Category
 
-Query Parameters: name  (e.g., "Frasiskus Asisi").
+Query Parameters:
+
+- `name` (e.g., "Fransiskus Assisi")
+- `category` (e.g., "Perdamaian, Kasih")
+
+You can provide either `name` or `category`.
 
 ```bash
 /api/v1/quotes/search?name={name}
-
 ```
-
-```json
-{
-   {
-    "success": true,
-    "data": [
-        {
-            "id": "67ff75ad54be8c0b466e81bc",
-            "quote": "Tuhan, buatlah aku alat perdamaian-Mu. Di mana ada kebencian, biarlah aku menaburkan cinta; di mana ada luka, biarlah aku membawa penyembuhan; di mana ada keraguan, biarlah aku membawa iman.",
-            "author": {
-                "name": "Santo Fransiskus Assisi",
-                "biography": "Santo Fransiskus Assisi adalah seorang santo, diakon, biarawan, dan pendiri Ordo Saudara-Saudara Fransiskan (OFM). Ia dikenal karena hidup sederhana, cinta kepada alam, dan dedikasinya dalam membangun perdamaian. Lahir di Assisi, Italia, pada 10 Juli 1182, ia meninggal pada 3 Oktober 1226.",
-                "birth_date": "1182-07-10",
-                "death_date": "1226-10-03",
-                "death_place": "Assisi, Italia",
-                "congregation": "Ordo Saudara-Saudara Fransiskan",
-                "denomination": [
-                    "Katolik Roma",
-                    "Anglikan"
-                ],
-                "veneration_date": "4 Oktober",
-                "pilgrimage_site": "Basilika Santo Fransiskus dari Assisi",
-                "attributes": [
-                    "Salib",
-                    "Burung Merpati",
-                    "Pax et Bonum",
-                    "Poor Franciscan habit",
-                    "Stigmata"
-                ],
-                "patronage": [
-                    "Binatang",
-                    "Lingkungan",
-                    "Saudagar"
-                ]
-            },
-            "category": "Perdamaian, Kasih",
-            "created_at": "2025-04-15T09:39:56.08Z",
-            "updated_at": "2025-04-16T09:17:33.826Z"
-        }
-    ],
-    "message": "Quotes successfully retrieved for the saint",
-    "code": 200
-    }
-}
-```
-
-#### Get Quotes by Category
-
-Query Parameters: category (e.g., "Perdamaian, Kasih").
 
 ```bash
-/api/v1/quotes/category?category={category}
+/api/v1/quotes/search?category={category}
+
 ```
 
 ```json

@@ -6,7 +6,7 @@ import (
 	"math/rand"
 
 	"github.com/stfuxbm/quote-saints/internal/database"
-	"github.com/stfuxbm/quote-saints/internal/models"
+	models "github.com/stfuxbm/quote-saints/internal/models/quotes"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )

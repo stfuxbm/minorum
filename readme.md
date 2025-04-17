@@ -1,11 +1,11 @@
 ## Saints Quotes API
 
-A RESTful API that delivers inspirational quotes from Catholic and Orthodox saints.  
-It includes biographical details, spiritual attributes, and patronages associated with each saint.
+A RESTful API that delivers inspirational quotes from Catholic and Orthodox saints and includes details about religious orders.
+It features biographical information, spiritual attributes, patronages associated with each saint, as well as information on religious orders, their founding, and their global presence.
 
 ### Motivation
 
-To inspire reflection, spiritual growth, and inner peace, this project preserves the timeless wisdom of the saints and shares their teachings with the world.
+To inspire reflection, spiritual growth, and inner peace, this project preserves the timeless wisdom of the saints and the legacy of their religious orders. By sharing their teachings, we aim to bring light to the world through the examples of holiness and service.
 
 ### Getting Started
 
@@ -63,17 +63,17 @@ api/v1/random-quotes
 
 #### Get Quotes by Saint or Category
 
-Query Parameters:
+Query :
 
 - `name` (e.g., "Fransiskus Assisi")
 - `category` (e.g., "Perdamaian, Kasih")
 
 ```bash
-/api/v1/quotes/search?name={name}
+/api/v1/quotes/search?name={query}
 ```
 
 ```bash
-/api/v1/quotes/search?category={category}
+/api/v1/quotes/search?category={query}
 
 ```
 
@@ -122,14 +122,126 @@ Query Parameters:
 }
 ```
 
-### Rate Limiting
+#### Get A Ordos
 
-To ensure fair usage and prevent abuse, this API applies the following rate limiting policy only 20 requests per 15-minute window.
+Retrieve a ordo inspirational from chatolic church
+
+Query
+
+- `name` (e.g., "Ordo Kapusin")
+- `nickname` (e.g., "Kapusin")
+- `category` (e.g., "Imam")
+- `title` (e.g., "Cap")
+
+```bash
+/api/v1/search?order={query}
+```
 
 ```json
 {
-  "message": "Too many requests, please try again after 15 minutes",
-  "code": 429
+    "success": true,
+    "data": {
+        "order_name": "Ordo Kapusin",
+        "latin_name": "Ordo Fratrum Minorum Capuccinorum",
+        "nickname": "Kapusin",
+        "title": "O.F.M. Cap. (Ordo Saudara Dina Kapusin)",
+        "category": "Klerikal (Imam)",
+        "denomination": "Gereja Katolik Roma",
+        "founder_name": "Matteo da Bascio (terinspirasi oleh Santo Fransiskus dari Assisi)",
+        "founded_year": 1528,
+        "current_leader": "Saudara Roberto Genuin, O.F.M. Cap.",
+        "address": {
+            "head_quarters": "General Headquarters of the Order of Friars Minor Capuchin",
+            "street": "Via Piemonte, 70",
+            "city": "Rome",
+            "postal_code": "00187",
+            "country": "Italy",
+            "phone": [
+                "+39 06 42011710",
+                "+39 335 1641820"
+            ],
+            "fax": "+39 06 4828267"
+        },
+        "description": "Ordo Kapusin adalah sebuah tarekat religius dalam Gereja Katolik yang anggotanya—imam, bruder, dan frater—hidup bersama sebagai saudara. Nama 'Kapusin' berasal dari ciri khas tudung panjang runcing (capuccio) yang dikenakan oleh anggotanya. Sebagai cabang reformasi dari Ordo Fransiskan, mereka didirikan pada tahun 1528 untuk hidup lebih sederhana dan meneladani kehidupan Santo Fransiskus dari Assisi. Para frater Kapusin hidup dalam kerendahan hati dan kesederhanaan, melayani kaum miskin dan terpinggirkan melalui doa, kontemplasi, dan pelayanan sosial. Kehidupan komunitas mereka ditandai dengan kasih, pengorbanan, dan kesaksian Injil melalui cara hidup mereka.",
+        "slogan": "Fratres Minores – Saudara-saudara Dina",
+        "related_orders": [
+            "Ordo Saudara Dina (OFM)",
+            "Ordo Saudara Dina Konventual (OFMConv)",
+            "Ordo Santa Klara",
+            "Ordo Ketiga Reguler (TOR)",
+            "Ordo Fransiskan Sekular (OFS)"
+        ],
+        "coat_of_arms_url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Coat_of_Arms_of_the_Order_of_Friars_Minor.svg",
+        "constitution_approval": {
+            "approved_by_pope": "Paus Klemens VII",
+            "approval_date": "1528"
+        },
+        "missionary_activity": {
+            "initial_goals": "Hidup secara radikal sesuai Injil, melayani yang miskin dan terpinggirkan dengan kerendahan hati.",
+            "global_regions": [
+                "Eropa Barat",
+                "Eropa Tengah dan Timur",
+                "Asia dan Oseania",
+                "Amerika Utara",
+                "Amerika Selatan"
+            ],
+            "indonesia_regions": [
+                "Provinsi Kapusin Medan",
+                "Kustodi Jenderal Sibolga",
+                "Kustodi Jenderal Kepulauan Nias",
+                "Provinsi Kapusin Pontianak"
+            ]
+        },
+        "principles": {
+            "motto": "Pax et Bonum – Damai dan Kebaikan",
+            "spiritual_practice": [
+                "Doa kontemplatif",
+                "Hidup sederhana dan rendah hati",
+                "Pelayanan pastoral dan sosial",
+                "Pewartaan Injil lewat teladan hidup"
+            ]
+        },
+        "notable_saints_blesseds": [
+            {
+                "name": "Santo Laurensius dari Brindisi",
+                "contribution": "Doktor Gereja, dikenal karena pewartaan dan kontribusi dalam Kontra-Reformasi."
+            },
+            {
+                "name": "Santo Pio dari Pietrelcina (Padre Pio)",
+                "contribution": "Dikenal karena stigmata, karisma penyembuhan, dan bimbingan rohani."
+            }
+        ],
+        "rules": [
+            "Dalam nama Tuhan dimulai hidup Saudara Dina",
+            "Tentang mereka yang ingin menjalani hidup ini dan bagaimana mereka diterima",
+            "Tentang Ibadat Ilahi, puasa, dan cara saudara berjalan di dunia",
+            "Agar saudara tidak menerima uang",
+            "Tuhan memberikan aku, Fransiskus, untuk mulai bertobat dengan cara ini",
+            "Tentang cara bekerja",
+            "Agar saudara tidak memiliki apa pun untuk diri sendiri: tentang mengemis dan merawat orang sakit",
+            "Tentang koreksi dan hukuman bagi saudara yang berdosa",
+            "Tentang pemilihan Menteri Jenderal dan Kapitel Pentekosta",
+            "Tentang para pewarta",
+            "Tentang nasihat dan koreksi persaudaraan",
+            "Agar saudara tidak masuk ke biara-biara para suster",
+            "Tentang pergi ke antara orang Saracen dan non-Kristen lainnya"
+        ],
+        "metadata": {
+            "source": [
+                "https://www.ofmcap.org/it/",
+                "Provinsi Kapusin Medan",
+                "Kustodi Jenderal Sibolga",
+                "Kustodi Jenderal Kepulauan Nias",
+                "Provinsi Kapusin Pontianak"
+            ],
+            "retrieved_date": "2025-04-17",
+            "source_description": "Data ini diambil dari situs resmi global dan Indonesia dari Ordo Kapusin serta sumber lain yang terkait sejarah dan konstitusinya."
+        },
+        "created_at": "2025-04-17T12:00:00Z",
+        "updated_at": "2025-04-17T06:42:13.955Z"
+    },
+    "message": "Order successfully retrieved",
+    "code": 200
 }
 ```
 

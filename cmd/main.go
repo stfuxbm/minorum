@@ -20,9 +20,9 @@ func main() {
 	// Setup semua route
 	mux := routes.SetupRoutes()
 
-	// Jalankan server di port 8081
-	fmt.Println("Server is running on http://localhost:8081")
-	err := http.ListenAndServe(":8081", mux)
+	// Jalankan server di port 8080
+	fmt.Println("Server is running on http://localhost:8080")
+	err := http.ListenAndServe(":8080", mux)
 	if err != nil {
 		log.Fatal("Server failed to start: ", err)
 	}

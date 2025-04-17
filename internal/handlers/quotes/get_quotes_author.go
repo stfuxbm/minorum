@@ -4,8 +4,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/stfuxbm/quote-saints/internal/helpers"
-	"github.com/stfuxbm/quote-saints/internal/models"
+	helpers "github.com/stfuxbm/quote-saints/internal/helpers/quotes"
+	models "github.com/stfuxbm/quote-saints/internal/models/response"
+
 	"github.com/stfuxbm/quote-saints/internal/utils"
 )
 

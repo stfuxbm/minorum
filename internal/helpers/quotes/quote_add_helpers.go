@@ -7,14 +7,14 @@ import (
 	"time"
 
 	"github.com/stfuxbm/quote-saints/internal/database"
-	"github.com/stfuxbm/quote-saints/internal/models"
+	models "github.com/stfuxbm/quote-saints/internal/models/quotes"
 )
 
 // DecodeQuote mengubah request body (JSON) menjadi struct Quote
-func DecodeQuote(r *http.Request) (models.Quote, error) {
+func DecodeQuote(r *http.Request) (models.Quote, error) { // Mengembalikan tipe models.Quote
 	var quote models.Quote
 	if err := json.NewDecoder(r.Body).Decode(&quote); err != nil {
-		return quote, fmt.Errorf(models.MsgInvalidJSON)
+		return quote, fmt.Errorf("invalid JSON format") // Menggunakan string pesan kesalahan yang lebih jelas
 	}
 	return quote, nil
 }
@@ -23,7 +23,7 @@ func DecodeQuote(r *http.Request) (models.Quote, error) {
 // - quote dan author name tidak boleh kosong
 func ValidateQuote(quote models.Quote) error {
 	if quote.Quote == "" || quote.Author.Name == "" {
-		return fmt.Errorf(models.MsgFieldRequired)
+		return fmt.Errorf("quote and author name are required") // Menggunakan pesan kesalahan yang lebih jelas
 	}
 	return nil
 }
@@ -37,10 +37,10 @@ func CheckDuplicateQuote(r *http.Request, quote models.Quote) error {
 	}
 	count, err := collection.CountDocuments(r.Context(), filter)
 	if err != nil {
-		return fmt.Errorf(models.MsgInternalServerError)
+		return fmt.Errorf("internal server error") // Pesan kesalahan yang lebih jelas
 	}
 	if count > 0 {
-		return fmt.Errorf(models.MsgQuoteExists)
+		return fmt.Errorf("quote already exists") // Pesan kesalahan yang lebih jelas
 	}
 	return nil
 }
@@ -59,7 +59,7 @@ func SaveQuote(r *http.Request, quote *models.Quote) error {
 	// Menyimpan atau mengupdate data ke database
 	_, err := collection.InsertOne(r.Context(), quote)
 	if err != nil {
-		return fmt.Errorf(models.MsgInternalServerError)
+		return fmt.Errorf("internal server error") // Pesan kesalahan yang lebih jelas
 	}
 	return nil
 }

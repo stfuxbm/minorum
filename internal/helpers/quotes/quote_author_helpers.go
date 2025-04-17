@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/stfuxbm/quote-saints/internal/database"
-	"github.com/stfuxbm/quote-saints/internal/models"
+	models "github.com/stfuxbm/quote-saints/internal/models/quotes"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )

@@ -1,0 +1,17 @@
+.PHONY: build run prod
+
+# Target for building the application
+build:
+    @echo "Building the project for production..."
+    go build -o main ./cmd
+
+# Target for running the application on Render
+run:
+    @echo "🔄 Running the server on Render..."
+    ./main
+
+# Target for building and deploying to production (Render)
+prod:
+    @echo "🔨 Building and running the application for production on Render..."
+    make build
+    make run

@@ -12,10 +12,10 @@ import (
 )
 
 func main() {
-	// Load environment variable dari file .env
+	// Load environment variable dari file .env (gunakan konfigurasi Render untuk ENV di production)
 	config.LoadEnv()
 
-	// Koneksi ke MongoDB
+	// Koneksi ke MongoDB (periksa variabel lingkungan yang digunakan untuk URL MongoDB)
 	database.MongoConnect()
 
 	// Setup semua route

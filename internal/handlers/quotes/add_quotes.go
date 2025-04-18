@@ -3,10 +3,9 @@ package handlers
 import (
 	"net/http"
 
-	helpers "github.com/stfuxbm/quote-saints/internal/helpers/quotes"
-	models "github.com/stfuxbm/quote-saints/internal/models/response"
-
-	"github.com/stfuxbm/quote-saints/internal/utils"
+	helpers "github.com/stfuxbm/minorum/internal/helpers/quotes"
+	models "github.com/stfuxbm/minorum/internal/models/response"
+	"github.com/stfuxbm/minorum/internal/utils"
 )
 
 // AddQuote menangani permintaan POST untuk menambahkan quote baru ke koleksi "quotes".

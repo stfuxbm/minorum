@@ -5,10 +5,9 @@ import (
 	"net/http"
 	"time"
 
-	helpers "github.com/stfuxbm/quote-saints/internal/helpers/quotes"
-	models "github.com/stfuxbm/quote-saints/internal/models/response"
-
-	"github.com/stfuxbm/quote-saints/internal/utils"
+	helpers "github.com/stfuxbm/minorum/internal/helpers/quotes"
+	models "github.com/stfuxbm/minorum/internal/models/response"
+	"github.com/stfuxbm/minorum/internal/utils"
 )
 
 // GetRandomQuote menangani permintaan GET untuk mendapatkan quote acak.

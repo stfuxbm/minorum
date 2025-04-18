@@ -5,9 +5,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/stfuxbm/quote-saints/config"
-	"github.com/stfuxbm/quote-saints/internal/database"
-	"github.com/stfuxbm/quote-saints/internal/routes"
+	"github.com/stfuxbm/minorum/config"
+	"github.com/stfuxbm/minorum/internal/database"
+	"github.com/stfuxbm/minorum/internal/routes"
 )
 
 func main() {

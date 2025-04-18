@@ -4,14 +4,13 @@ import (
 	"net/http"
 	"strings"
 
-	helpers "github.com/stfuxbm/quote-saints/internal/helpers/quotes"
-	models "github.com/stfuxbm/quote-saints/internal/models/response"
-
-	"github.com/stfuxbm/quote-saints/internal/utils"
+	helpers "github.com/stfuxbm/minorum/internal/helpers/quotes"
+	models "github.com/stfuxbm/minorum/internal/models/response"
+	"github.com/stfuxbm/minorum/internal/utils"
 )
 
 // GetQuotesBySaintName menangani permintaan GET untuk mendapatkan quote berdasarkan nama santo.
-func GetQuotesBySaintName(w http.ResponseWriter, r *http.Request) {
+func GetQuotesBySaintNameOrCategory(w http.ResponseWriter, r *http.Request) {
 	// Hanya izinkan method GET
 	if r.Method != http.MethodGet {
 		utils.ErrorResponse(
@@ -23,21 +22,21 @@ func GetQuotesBySaintName(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Ambil query parameter 'name' dari URL
-	name := r.URL.Query().Get("name")
-	if name == "" {
+	order := r.URL.Query().Get("order")
+	if order == "" {
 		utils.ErrorResponse(
 			w,
-			"Name parameter is required",
+			"Order parameter is required",
 			http.StatusBadRequest,
 		)
 		return
 	}
 
 	// Normalisasi nama (agar pencarian lebih fleksibel)
-	name = strings.ToLower(name)
+	order = strings.ToLower(order)
 
 	// Ambil quotes berdasarkan nama santo dari database
-	quotes, err := helpers.GetQuotesBySaintName(r.Context(), name)
+	quotes, err := helpers.GetQuotesBySaintName(r.Context(), order)
 	if err != nil {
 		utils.ErrorResponse(
 			w,
@@ -51,7 +50,7 @@ func GetQuotesBySaintName(w http.ResponseWriter, r *http.Request) {
 	if len(quotes) == 0 {
 		utils.ErrorResponse(
 			w,
-			"No quotes found for the given saint name",
+			"No quotes found for the given saint name or category",
 			http.StatusNotFound,
 		)
 		return

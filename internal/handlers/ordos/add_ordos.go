@@ -3,9 +3,9 @@ package handlers
 import (
 	"net/http"
 
-	helpers "github.com/stfuxbm/quote-saints/internal/helpers/ordos"
-	models "github.com/stfuxbm/quote-saints/internal/models/response"
-	"github.com/stfuxbm/quote-saints/internal/utils"
+	helpers "github.com/stfuxbm/minorum/internal/helpers/ordos"
+	models "github.com/stfuxbm/minorum/internal/models/response"
+	"github.com/stfuxbm/minorum/internal/utils"
 )
 
 // AddOrdo menangani permintaan POST untuk menambahkan ordo baru ke koleksi "ordos".

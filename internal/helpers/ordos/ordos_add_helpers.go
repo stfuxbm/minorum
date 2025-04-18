@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/stfuxbm/quote-saints/internal/database"
-	models "github.com/stfuxbm/quote-saints/internal/models/ordos"
+	"github.com/stfuxbm/minorum/internal/database"
+	models "github.com/stfuxbm/minorum/internal/models/ordos"
 )
 
 // DecodeOrdo mengubah request body (JSON) menjadi struct Ordo
@@ -28,7 +28,6 @@ func ValidateOrdo(Ordo models.Ordo) error {
 	return nil
 }
 
-// CheckDuplicateOrdo mengecek apakah Ordo dengan isi dan nama author yang sama sudah ada di database
 // CheckDuplicateOrdo mengecek apakah Ordo dengan nama yang sama sudah ada di database
 func CheckDuplicateOrdo(r *http.Request, Ordo models.Ordo) error {
 	collection := database.DB.Collection("ordo")

@@ -1,34 +1,31 @@
-# Saints Quotes API
+# Minorum
 
-A RESTful API that provides inspirational quotes from Catholic and Orthodox saints, along with their biographical details, spiritual attributes, and patronages.
+Minorum is a RESTful API providing access to inspirational quotes and biographical information for Catholic and Orthodox saints.
 
-## Description
+## Motivation
 
-This API serves inspirational quotes from Catholic and Orthodox saints, enriched with biographical information, spiritual attributes, patronages, and categorized quote themes (e.g., faith, hope, prayer).
+The motivation behind **Minorum** is to make the profound wisdom and inspiring lives of Catholic and Orthodox saints readily accessible to a wider audience. In a world often filled with noise and distraction, the timeless teachings of these holy figures offer guidance, comfort, and a path towards spiritual growth and inner peace.
 
 ## Features
 
 - Inspirational quotes from Catholic and Orthodox saints.
 - Biographies of saints.
 - Patronages associated with each saint.
-- Categorized quotes.
-
-## Motivation
-
-To inspire reflection, spiritual growth, and inner peace by preserving and sharing the timeless wisdom of saints.
+- Categorized quotes (e.g., faith, hope, prayer).
+- Information about Catholic and Orthodox religious orders.
 
 ## Installation Guide
 
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/stfuxbm/quote-saints.git
+    git clone https://github.com/stfuxbm/minorum.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd quote-saints
+    cd minorum
     ```
 
 3. Install Go dependencies:
@@ -47,17 +44,32 @@ To inspire reflection, spiritual growth, and inner peace by preserving and shari
 
 ## API Endpoints
 
-**Order Endpoints**
+### Quote
 
-- `GET /api/v1/search?order={query}`: Retrieve order information by name.
-- `POST /api/v1/ordos`: Add ordos.
+- `POST /api/v1/quotes`  
+  Add a new quote
 
-**Quote Endpoints**
+- `GET /api/v1/random-quotes`  
+  Retrieve a random quote.
 
-- `POST /api/v1/quotes`: Add quotes.
-- `GET /api/v1/random-quotes`: Retrieve a random quote.
-- `GET /api/v1/quotes/search?name={query}`: Retrieve quotes by author name.
-- `GET /api/v1/quotes/category?category={query}`: Retrieve quotes by category.
+- `GET /api/v1/quotes/search?name={query}`  
+  Retrieve quotes by saint name or category.
+
+### Ordo
+
+- `POST /api/v1/ordos`  
+  Add a new ordo
+
+- `GET /api/v1/ordos/search?order={query}`  
+  Retrieve ordo information by order name or nickname.
+
+### Saint
+
+- `POST /api/v1/saints`  
+  Add a new saint
+
+- `GET /api/v1/saints/search?order={query}`  
+  Retrieve saint information by order name or nickname.
 
 ## Contribution Guidelines
 

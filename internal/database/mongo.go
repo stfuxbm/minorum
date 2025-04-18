@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/stfuxbm/quote-saints/config"
+	"github.com/stfuxbm/minorum/config"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )

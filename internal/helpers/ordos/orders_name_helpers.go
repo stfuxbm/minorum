@@ -3,8 +3,8 @@ package helpers
 import (
 	"context"
 
-	"github.com/stfuxbm/quote-saints/internal/database"
-	models "github.com/stfuxbm/quote-saints/internal/models/ordos"
+	"github.com/stfuxbm/minorum/internal/database"
+	models "github.com/stfuxbm/minorum/internal/models/ordos"
 	"go.mongodb.org/mongo-driver/bson"
 )
 

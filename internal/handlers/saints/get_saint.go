@@ -4,13 +4,13 @@ import (
 	"net/http"
 	"strings"
 
-	helpers "github.com/stfuxbm/minorum/internal/helpers/ordos"
+	helpers "github.com/stfuxbm/minorum/internal/helpers/saints" // ganti path helpers sesuai
 	models "github.com/stfuxbm/minorum/internal/models/response"
 	"github.com/stfuxbm/minorum/internal/utils"
 )
 
-// GetOrdoByOrderNameOrNickname menangani permintaan GET untuk mendapatkan ordo berdasarkan order_name atau nickname.
-func GetOrdoByOrderNameOrNickname(w http.ResponseWriter, r *http.Request) {
+// GetSaintByOrderNameOrNickname menangani permintaan GET untuk mendapatkan saint berdasarkan name atau nickname.
+func GetSaintByOrderNameOrNickname(w http.ResponseWriter, r *http.Request) {
 	// Hanya izinkan method GET
 	if r.Method != http.MethodGet {
 		utils.ErrorResponse(
@@ -32,35 +32,35 @@ func GetOrdoByOrderNameOrNickname(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Normalisasi order_name dan nickname (agar pencarian lebih fleksibel)
+	// Normalisasi nama dan nickname untuk pencarian fleksibel
 	order = strings.ToLower(order)
 
-	// Ambil ordo berdasarkan order_name atau nickname dari database
-	ordo, err := helpers.GetOrdoByOrderName(r.Context(), order)
+	// Ambil saint berdasarkan name atau nickname dari database
+	saint, err := helpers.GetSaintByNameOrNickname(r.Context(), order) // ganti method dan variabel
 	if err != nil {
 		utils.ErrorResponse(
 			w,
-			"Failed to retrieve ordo",
+			"Failed to retrieve saint",
 			http.StatusInternalServerError,
 		)
 		return
 	}
 
-	// Jika tidak ada ordo untuk order_name atau nickname yang diberikan, kembalikan response error
-	if ordo == nil {
+	// Jika tidak ditemukan
+	if saint == nil {
 		utils.ErrorResponse(
 			w,
-			"No order found for the given order_name or nickname",
+			"No saint found for the given name or nickname",
 			http.StatusNotFound,
 		)
 		return
 	}
 
-	// Kirim response dengan ordo yang ditemukan
+	// Kirim response sukses
 	utils.SuccessResponse(
 		w,
-		ordo,
-		"Order successfully retrieved",
+		saint,
+		"Saint successfully retrieved",
 		http.StatusOK,
 	)
 }

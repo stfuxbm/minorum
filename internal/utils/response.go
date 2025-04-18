@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	models "github.com/stfuxbm/quote-saints/internal/models/response"
+	models "github.com/stfuxbm/minorum/internal/models/response"
 )
 
 // EncoderJsonData digunakan secara internal untuk encode response JSON ke client.

@@ -1,4 +1,4 @@
-module github.com/stfuxbm/quote-saints
+module github.com/stfuxbm/minorum
 
 go 1.23
 

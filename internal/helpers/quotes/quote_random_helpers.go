@@ -5,16 +5,17 @@ import (
 	"context"
 	"math/rand"
 
-	"github.com/stfuxbm/quote-saints/internal/database"
-	models "github.com/stfuxbm/quote-saints/internal/models/quotes"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+
+	"github.com/stfuxbm/minorum/internal/database"
+	models "github.com/stfuxbm/minorum/internal/models/quotes"
 )
 
 // GetRandomQuotes mengambil semua quotes dari MongoDB
 func GetRandomQuotes(ctx context.Context) ([]models.Quote, error) {
 	// Akses koleksi quotes pada database MongoDB
-	quotesCollection := database.DB.Collection("quotes")
+	quotesCollection := database.DB.Collection("quote")
 
 	// Ambil semua quotes
 	cursor, err := quotesCollection.Find(ctx, options.Find())

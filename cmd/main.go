@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/stfuxbm/minorum/config"
 	"github.com/stfuxbm/minorum/internal/database"
@@ -20,9 +21,15 @@ func main() {
 	// Setup semua route
 	mux := routes.SetupRoutes()
 
-	// Jalankan server di port 8080
-	fmt.Println("Server is running on http://localhost:8080")
-	err := http.ListenAndServe(":8080", mux)
+	// Ambil PORT dari environment, default ke 8080 jika tidak ditemukan
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080" // fallback ke 8080 jika PORT tidak ditemukan
+	}
+
+	// Jalankan server di port yang sesuai
+	fmt.Println("Server is running on http://localhost:" + port)
+	err := http.ListenAndServe(":"+port, mux)
 	if err != nil {
 		log.Fatal("Server failed to start: ", err)
 	}

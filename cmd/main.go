@@ -6,15 +6,11 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/stfuxbm/minorum/config"
 	"github.com/stfuxbm/minorum/internal/database"
 	"github.com/stfuxbm/minorum/internal/routes"
 )
 
 func main() {
-	// Load environment variable dari file .env (gunakan konfigurasi Render untuk ENV di production)
-	config.LoadEnv()
-
 	// Koneksi ke MongoDB (periksa variabel lingkungan yang digunakan untuk URL MongoDB)
 	database.MongoConnect()
 

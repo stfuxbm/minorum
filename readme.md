@@ -45,7 +45,7 @@ The primary motivation behind **Minorum** is to make the timeless wisdom and ins
 ## Host
 
  ```bash
-   [https://minorum.onrender.com](https://minorum.onrender.com)
+   https://minorum.onrender.com
   ```
 
 ## API Endpoints

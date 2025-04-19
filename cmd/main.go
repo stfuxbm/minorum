@@ -5,16 +5,15 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/joho/godotenv" // Import godotenv
+	"github.com/joho/godotenv"
 	"github.com/stfuxbm/minorum/internal/database"
 	"github.com/stfuxbm/minorum/internal/routes"
 )
 
 func main() {
-	// Memuat file .env
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
+	// Coba load .env untuk local development
+	if err := godotenv.Load(); err != nil {
+		log.Println(".env file not found, using system environment variables")
 	}
 
 	// Koneksi ke MongoDB
@@ -33,8 +32,7 @@ func main() {
 	log.Println("Server started at http://localhost:" + port)
 
 	// Jalankan server di port yang sesuai
-	err = http.ListenAndServe(":"+port, mux)
-	if err != nil {
-		log.Fatal("Server failed to start: ", err)
+	if err := http.ListenAndServe(":"+port, mux); err != nil {
+		log.Fatal("Server failed to start:", err)
 	}
 }

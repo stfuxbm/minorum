@@ -1,18 +1,18 @@
 # Minorum
 
-Minorum is a RESTful API providing access to inspirational quotes and biographical information for Catholic and Orthodox saints.
+Minorum is a RESTful API designed to provide easy access to inspirational quotes and biographical information about Catholic and Orthodox saints. It offers a spiritual resource that encourages personal growth, reflection, and inspiration.
 
 ## Motivation
 
-The motivation behind **Minorum** is to make the profound wisdom and inspiring lives of Catholic and Orthodox saints readily accessible to a wider audience. In a world often filled with noise and distraction, the timeless teachings of these holy figures offer guidance, comfort, and a path towards spiritual growth and inner peace.
+The primary motivation behind **Minorum** is to make the timeless wisdom and inspiring lives of Catholic and Orthodox saints more accessible to a global audience. In a world that often feels chaotic and uncertain, the teachings of these saints provide comfort, direction, and a pathway toward spiritual growth and inner peace.
 
 ## Features
 
-- Inspirational quotes from Catholic and Orthodox saints.
-- Biographies of saints.
+- A vast collection of inspirational quotes from Catholic and Orthodox saints.
+- Detailed biographies of saints.
 - Patronages associated with each saint.
-- Categorized quotes (e.g., faith, hope, prayer).
-- Information about Catholic and Orthodox religious orders.
+- Categorized quotes based on themes (e.g., faith, hope, prayer, love).
+- Information on Catholic and Orthodox religious orders.
 
 ## Installation Guide
 
@@ -34,39 +34,45 @@ The motivation behind **Minorum** is to make the profound wisdom and inspiring l
     go mod download
     ```
 
-4. Run the application locally with:
+4. Run the application locally:
 
     ```bash
     make dev
     ```
 
-    This will start the server and allow you to interact with the API locally.
+    This command will start the development server, and you can begin interacting with the API locally.
+
+## Host
+
+ ```bash
+   [https://minorum.onrender.com](https://minorum.onrender.com)
+  ```
 
 ## API Endpoints
 
-### Quote
+### Quotes
 
 - `POST /api/v1/quotes`  
-  Add a new quote
+  Add a new quote.
 
 - `GET /api/v1/random-quotes`  
   Retrieve a random quote.
 
 - `GET /api/v1/quotes/search?name={query}`  
-  Retrieve quotes by saint name or category.
+  Search for quotes by saint name or category.
 
-### Ordo
+### Ordos (Religious Orders)
 
 - `POST /api/v1/ordos`  
-  Add a new ordo
+  Add a new religious order.
 
 - `GET /api/v1/ordos/search?order={query}`  
-  Retrieve ordo information by order name or nickname.
+  Retrieve information about religious orders by name or nickname.
 
-### Saint
+### Saints
 
 - `POST /api/v1/saints`  
-  Add a new saint
+  Add a new saint.
 
 - `GET /api/v1/saints/search?order={query}`  
   Retrieve saint information by order name or nickname.
@@ -77,4 +83,4 @@ Contributions are welcome. Fork the repository, create a branch, and submit a pu
 
 ## License
 
-The content provided in this application, including quotes from saints and holy figures, is available for free use under the MIT License. You are free to use, modify, and share the content as long as appropriate credit is given to the original sources.
+The content provided in this application, including quotes and biographical information, is made freely available under the MIT License. You are free to use, modify, and distribute the content, provided that appropriate credit is given to the original sources.

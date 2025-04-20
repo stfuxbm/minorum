@@ -4,22 +4,24 @@ import "time"
 
 // Apostle mewakili struktur data umum untuk para rasul
 type Saints struct {
-	Name               string    `bson:"name" json:"name"`
-	LatinName          string    `bson:"latin_name" json:"latin_name"`
-	NickName           string    `bson:"nick_name" json:"nick_name"`
-	Biography          string    `bson:"biography" json:"biography"`
-	RoleInApostles     string    `bson:"role_in_apostles" json:"role_in_apostles"`
-	FunFacts           []string  `bson:"fun_facts" json:"fun_facts"`
-	Denomination       []string  `bson:"denomination" json:"denomination"`
-	MissionaryActivity string    `bson:"missionary_activity" json:"missionary_activity"`
-	FeastDay           []string  `bson:"feast_day" json:"feast_day"`
-	Birth              BirthInfo `bson:"birth" json:"birth"`
-	Death              DeathInfo `bson:"death" json:"death"`
-	Patronage          []string  `bson:"patronage" json:"patronage"`
-	Symbols            []string  `bson:"symbols" json:"symbols"`
-	CreatedAt          time.Time `bson:"created_at" json:"created_at"`
-	UpdatedAt          time.Time `bson:"updated_at" json:"updated_at"`
-	Metadata           Metadata  `bson:"metadata" json:"metadata"`
+	Name                   string    `bson:"name" json:"name"`
+	LatinName              string    `bson:"latin_name" json:"latin_name"`
+	NickName               string    `bson:"nick_name" json:"nick_name"`
+	Biography              string    `bson:"biography" json:"biography"`
+	RoleInApostles         string    `bson:"role_in_apostles" json:"role_in_apostles"`
+	FunFacts               []string  `bson:"fun_facts" json:"fun_facts"`
+	Denomination           []string  `bson:"denomination" json:"denomination"`
+	CongregationIndonesian string    `bson:"congregation_indonesian" json:"congregation_indonesian"`
+	CongregationLatin      string    `bson:"congregation_latin" json:"congregation_latin"`
+	MissionaryActivity     string    `bson:"missionary_activity" json:"missionary_activity"`
+	FeastDay               []string  `bson:"feast_day" json:"feast_day"`
+	Birth                  BirthInfo `bson:"birth" json:"birth"`
+	Death                  DeathInfo `bson:"death" json:"death"`
+	Patronage              []string  `bson:"patronage" json:"patronage"`
+	Symbols                []string  `bson:"symbols" json:"symbols"`
+	CreatedAt              time.Time `bson:"created_at" json:"created_at"`
+	UpdatedAt              time.Time `bson:"updated_at" json:"updated_at"`
+	Metadata               Metadata  `bson:"metadata" json:"metadata"`
 }
 
 // BirthInfo menyimpan detail kelahiran
